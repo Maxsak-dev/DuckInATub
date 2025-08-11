@@ -2581,6 +2581,17 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &2091225208 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5382455887621612991, guid: a7321d8c19b5e4244b8515802af211bd, type: 3}
+  m_PrefabInstance: {fileID: 4105256220866978946}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99153cf32cd1e61658123b1e5e080da3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &225805483998001927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2836,6 +2847,10 @@ PrefabInstance:
       propertyPath: player_spawn
       value: 
       objectReference: {fileID: 67204285}
+    - target: {fileID: 7321184467155853252, guid: 921b0be20083aaf7db0f59c9a55df419, type: 3}
+      propertyPath: uIController
+      value: 
+      objectReference: {fileID: 2091225208}
     - target: {fileID: 7321184467155853252, guid: 921b0be20083aaf7db0f59c9a55df419, type: 3}
       propertyPath: bubbleSpawner
       value: 
