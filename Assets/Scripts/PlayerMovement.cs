@@ -72,11 +72,33 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
+
+
         
         if (Input.GetButton("TopLeft"))
         {
             target_pos = boyeTL.position - transform.position;
             newTarget = boyeTL;
+        }
+        else if (Input.GetAxis("JoystickX") > 0.1)
+        {
+            target_pos = boyeBR.position - transform.position;
+            newTarget = boyeBR;
+        }
+        else if (Input.GetAxis("JoystickX") < -0.1)
+        {
+            target_pos = boyeTL.position - transform.position;
+            newTarget = boyeTL;
+        }
+        else if (Input.GetAxis("JoystickY") > 0.1)
+        {
+            target_pos = boyeBL.position - transform.position;
+            newTarget = boyeBL;
+        }
+        else if (Input.GetAxis("JoystickY") < -0.1)
+        {
+            target_pos = boyeTR.position - transform.position;
+            newTarget = boyeTR;
         }
         else if (Input.GetButton("TopRight"))
         {

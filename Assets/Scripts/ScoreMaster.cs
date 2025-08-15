@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using System.IO;
 
 public class ScoreMaster : MonoBehaviour
 {
@@ -29,6 +29,8 @@ public class ScoreMaster : MonoBehaviour
     private float discharge_rate;
     private Coroutine discharge_rate_coroutine;
     private bool in_credits = false;
+    private string filePath;
+    private float highscore = 0.0f;
 
     void Update()
     {
@@ -63,6 +65,17 @@ public class ScoreMaster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Cross-platform path
+        filePath = Path.Combine(Application.persistentDataPath, "scores.txt");
+
+        // Load the score
+        if (File.Exists(filePath))
+        {
+            string scoreText = File.ReadAllText(filePath);
+            highscore = float.Parse(scoreText);
+            menu_score_label.text = $"High score: {highscore}";
+        }
+
         UpdateLabel();
         uiController = GameObject.Find("InGameUI").GetComponent<UIController>();
         StartCoroutine(Discharger());
@@ -109,7 +122,13 @@ public class ScoreMaster : MonoBehaviour
     public void EndComplete()
     {
         menu_ui.SetActive(true);
-        menu_score_label.text = $"Last score: {score}";
+
+        if (score > highscore)
+        {
+            menu_score_label.text = $"High score: {score}";
+            highscore = score;
+            File.WriteAllText(filePath, score.ToString());
+        }
         score = 0;
     }
 
