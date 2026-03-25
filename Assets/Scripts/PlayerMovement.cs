@@ -90,12 +90,12 @@ public class PlayerMovement : MonoBehaviour
             target_pos = boyeTL.position - transform.position;
             newTarget = boyeTL;
         }
-        else if (Input.GetAxis("JoystickY") < -0.1)
+        else if (Input.GetAxis("JoystickY") > 0.1)
         {
             target_pos = boyeBL.position - transform.position;
             newTarget = boyeBL;
         }
-        else if (Input.GetAxis("JoystickY") > 0.1)
+        else if (Input.GetAxis("JoystickY") < -0.1)
         {
             target_pos = boyeTR.position - transform.position;
             newTarget = boyeTR;
